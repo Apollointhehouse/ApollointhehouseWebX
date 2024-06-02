@@ -1,34 +1,7 @@
-local btn = get("startbtn")
+local counter = get("counter")
+local count = 0
 
-print(btn.get_content())
-btn.set_content("Hello, World!")
-print(btn.get_content())
-
-btn.on_click(function()
-    print("clicked!")
+get("pressMe").on_click(function(content)
+    count = count + 1
+    counter.set_content("Counter: " + count)
 end)
-
-get("input").on_submit(function(content)
-    print(content)
-end)
-
-get("input").on_input(function(content)
-    print(content)
-end)
-
-get("textarea").on_input(function(content)
-    print(content)
-end)
-
--- get("futurelink").set_href("https://www.duckduckgo.com/")
-
-coroutine.wrap(function()
-	local res = fetch({
-		url = "http://127.0.0.1:3000/",
-		method = "POST",
-		headers = { ["Content-Type"] = "application/json" },
-		body = '{ "test": 3 }',
-	})
-
-	print("hlelo", { hello = true })
-end)()
